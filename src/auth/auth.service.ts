@@ -8,7 +8,13 @@ export class AuthService {
   async signIn(@Body() body): Promise<Object> {
     try {
       var response = await firstValueFrom(
-        this.httpService.post('https://dummyjson.com/auth/login', body),
+        this.httpService.post('https://dummyjson.com/auth/login', body, {
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE',
+            'Access-Control-Allow-Headers': 'Content-Type, Accept',
+          },
+        }),
       );
       console.log(response.data);
       return response.data;
