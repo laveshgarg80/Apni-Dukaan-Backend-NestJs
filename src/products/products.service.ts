@@ -12,7 +12,6 @@ export class ProductsService {
         `https://dummyjson.com/products?limit=${query.limit}`,
       ),
     );
-    console.log(response.data);
     return response.data;
   }
 }
